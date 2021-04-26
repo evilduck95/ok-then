@@ -14,9 +14,7 @@ public class App {
     public static void main(String[] args) {
         String link = "https://www.nhentai.net/g/";
         Random rand = new Random();
-        int min = 6;
-        int max = 6;
-        int random_int = 6 + random_float() * 6;
+        int random_int = 100000 + random_float() * 999999;
         String hentaiLink = link + random_int;
         JEditorPane jep = new JEditorPane();
     jep.setEditable(false);   
@@ -37,26 +35,23 @@ public class App {
 
     JFrame niceA = new JFrame();
 
-    // creating instance of JButton
     JButton niceB = new JButton("hentai hentai hentai");
 
-    // x axis, y axis, width, height
     niceB.setBounds(80, 100, 250, 40);
 
-    // add event listener
     niceB.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
         f.setVisible(true);
+        System.out.println(random_int);
       }
     });
 
-    // add button to JFrame
+
     niceA.add(niceB);
 
     niceA.setSize(400, 500);
     niceA.setLayout(null);
-    // make the frame visible
     niceA.setVisible(true);
 
     }
