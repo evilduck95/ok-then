@@ -14,7 +14,9 @@ public class App {
     public static void main(String[] args) {
         String link = "https://www.nhentai.net/g/";
         Random rand = new Random();
-        int random_int = 100000 + random_float() * 999999;
+        int max = 999999;
+        int min = 100000;
+        int random_int = (int)Math.floor(Math.random()*(max-min+1)+min);
         String hentaiLink = link + random_int;
         JEditorPane jep = new JEditorPane();
     jep.setEditable(false);   
