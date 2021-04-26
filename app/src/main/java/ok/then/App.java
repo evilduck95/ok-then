@@ -58,7 +58,7 @@ public class App {
 
     JButton niceC = new JButton("generate NEW hentai");
 
-        niceC.setBounds(206, 240, 250, 40);
+        niceC.setBounds(80, 150, 250, 40);
     
         niceC.addActionListener(new ActionListener() {
           @Override
@@ -67,11 +67,12 @@ public class App {
                 int min1 = 0;
                 int max1 = 4;
                 int i = (int)Math.floor(Math.random()*(max1-min1+1)+min1);
+                
                 jep.setPage("https://www.nhentai.net/g/" + hentaiArray[i]);
-
+                
             } catch (IOException e1) {
                 // TODO Auto-generated catch block
-                e1.printStackTrace();
+                jep.setText("<html>Could not load, probably not a valid hentai link</html>");
             }
           }
           
