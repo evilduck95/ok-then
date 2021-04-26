@@ -16,7 +16,7 @@ public class App {
         Random rand = new Random();
         int min = 6;
         int max = 6;
-        int random_int = (int)Math.floor(Math.random()*(max-min+1)+min); 
+        int random_int = 6 + random_float() * 6;
         String hentaiLink = link + random_int;
         JEditorPane jep = new JEditorPane();
     jep.setEditable(false);   
@@ -32,13 +32,13 @@ public class App {
     JFrame f = new JFrame("Test HTML");
     f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     f.getContentPane().add(scrollPane);
-    f.setPreferredSize(new Dimension(1500,600));
+    f.setBounds(80, 100, 350, 40);
     // f.setVisible(true);
 
     JFrame niceA = new JFrame();
 
     // creating instance of JButton
-    JButton niceB = new JButton("Click me!");
+    JButton niceB = new JButton("hentai hentai hentai");
 
     // x axis, y axis, width, height
     niceB.setBounds(80, 100, 250, 40);
@@ -47,7 +47,7 @@ public class App {
     niceB.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
-        System.out.println("Hello world!");
+        f.setVisible(true);
       }
     });
 
@@ -59,5 +59,9 @@ public class App {
     // make the frame visible
     niceA.setVisible(true);
 
+    }
+
+    private static int random_float() {
+        return 0;
     }
 }
