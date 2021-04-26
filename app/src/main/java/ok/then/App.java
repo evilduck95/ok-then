@@ -13,8 +13,13 @@ import java.awt.event.ActionListener;
 public class App {
     
     public static void main(String[] args) {
-
-        
+        int min1 = 0;
+        int max1 = 4;
+        int i_forHentai = (int)Math.floor(Math.random()*(max1-min1+1)+min1);
+        String i_forHentai_string = String.valueOf(i_forHentai);
+        int bannedHentaiNum = 3;
+        int hentaiArrayToPush = bannedHentaiNum + 1;
+        String[] bannedHentais = new String[bannedHentaiNum];
 
         String[] hentaiArray = new String[5];
         String link = "https://www.nhentai.net/g/";
@@ -43,40 +48,18 @@ public class App {
         String hentaiLink = link + random_int1;
         JEditorPane jep = new JEditorPane();
     jep.setEditable(false);   
-
+    JFrame niceA = new JFrame();
     try {
-        int min1 = 0;
-        int max1 = 4;
-        int i = (int)Math.floor(Math.random()*(max1-min1+1)+min1);
-
-    jep.setPage("https://www.nhentai.net/g/" + hentaiArray[i]);
-    }catch (IOException e) {
+        
+        System.out.println(hentaiArray[i_forHentai]);
+    jep.setPage("https://www.nhentai.net/g/" + hentaiArray[i_forHentai]);
+    } catch (IOException e) {
     jep.setContentType("text/html");
     jep.setText("<html>Could not load, probably not a valid hentai link</html>");
-        
+    niceA.toFront();
+    bannedHentaiNum += 2;
+    i_forHentai_string = bannedHentais[bannedHentaiNum - 3];
     } 
-
-    JButton niceC = new JButton("generate NEW hentai");
-
-        niceC.setBounds(80, 150, 250, 40);
-    
-        niceC.addActionListener(new ActionListener() {
-          @Override
-          public void actionPerformed(ActionEvent e) {
-            try {
-                int min1 = 0;
-                int max1 = 4;
-                int i = (int)Math.floor(Math.random()*(max1-min1+1)+min1);
-                
-                jep.setPage("https://www.nhentai.net/g/" + hentaiArray[i]);
-                
-            } catch (IOException e1) {
-                // TODO Auto-generated catch block
-                jep.setText("<html>Could not load, probably not a valid hentai link</html>");
-            }
-          }
-          
-        });
 
     JScrollPane scrollPane = new JScrollPane(jep);     
     JFrame f = new JFrame("hentai lol");
@@ -84,8 +67,6 @@ public class App {
     f.getContentPane().add(scrollPane);
     f.setBounds(800, 1000, 3500, 900);
     // f.setVisible(true);
-
-    JFrame niceA = new JFrame();
 
     JButton niceB = new JButton("generate hentai");
 
@@ -99,6 +80,17 @@ public class App {
       
     });
    
+    JButton niceC = new JButton("close hentai page");
+
+        niceC.setBounds(80, 150, 250, 40);
+    
+        niceC.addActionListener(new ActionListener() {
+          @Override
+          public void actionPerformed(ActionEvent e) {
+            f.setVisible(false);
+          }
+          
+        });
 
     niceA.add(niceB);
     niceA.add(niceC);
