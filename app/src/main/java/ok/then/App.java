@@ -13,6 +13,9 @@ import java.awt.event.ActionListener;
 public class App {
     
     public static void main(String[] args) {
+
+        
+
         String[] hentaiArray = new String[5];
         String link = "https://www.nhentai.net/g/";
         Random rand = new Random();
@@ -53,11 +56,32 @@ public class App {
         
     } 
 
+    JButton niceC = new JButton("generate NEW hentai");
+
+        niceC.setBounds(206, 240, 250, 40);
+    
+        niceC.addActionListener(new ActionListener() {
+          @Override
+          public void actionPerformed(ActionEvent e) {
+            try {
+                int min1 = 0;
+                int max1 = 4;
+                int i = (int)Math.floor(Math.random()*(max1-min1+1)+min1);
+                jep.setPage("https://www.nhentai.net/g/" + hentaiArray[i]);
+
+            } catch (IOException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+            }
+          }
+          
+        });
+
     JScrollPane scrollPane = new JScrollPane(jep);     
     JFrame f = new JFrame("hentai lol");
     f.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
     f.getContentPane().add(scrollPane);
-    f.setBounds(800, 1000, 3500, 400);
+    f.setBounds(800, 1000, 3500, 900);
     // f.setVisible(true);
 
     JFrame niceA = new JFrame();
@@ -76,10 +100,12 @@ public class App {
    
 
     niceA.add(niceB);
+    niceA.add(niceC);
 
     niceA.setSize(400, 500);
     niceA.setLayout(null);
     niceA.setVisible(true);
+    niceA.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     }
 
