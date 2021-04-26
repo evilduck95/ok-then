@@ -67,8 +67,7 @@ public class App {
                 int min1 = 0;
                 int max1 = 4;
                 int i = (int)Math.floor(Math.random()*(max1-min1+1)+min1);
-                jep.setVisible(false);
-                jep.setVisible(true);
+                
                 jep.setPage("https://www.nhentai.net/g/" + hentaiArray[i]);
                 
             } catch (IOException e1) {
