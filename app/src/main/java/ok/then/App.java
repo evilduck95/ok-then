@@ -8,6 +8,9 @@ import java.lang.*;
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.event.ActionListener;
+import java.util.regex.*;
+import java.text.*;
+
 
 
 public class App {
@@ -80,7 +83,7 @@ public class App {
       
     });
    
-    JButton niceC = new JButton("close hentai page");
+    JButton niceC = new JButton("close hentai window");
 
         niceC.setBounds(80, 150, 250, 40);
     
