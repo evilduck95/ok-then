@@ -7,6 +7,7 @@ import java.io.*;
 import java.lang.*;
 import javax.swing.*;
 import java.awt.event.*;
+import java.awt.event.ActionListener;
 
 
 public class App {
@@ -70,8 +71,9 @@ public class App {
       public void actionPerformed(ActionEvent e) {
         f.setVisible(true);
       }
+      
     });
-
+   
 
     niceA.add(niceB);
 
