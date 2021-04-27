@@ -64,9 +64,10 @@ public class App {
 
         JEditorPane jep1 = new JEditorPane();
         jep1.setEditable(false); 
-
         niceD.setBounds(1130, 5, 250, 40);
+
         
+
         JScrollPane vibeeScrollPane = new JScrollPane(jep1);   
         JFrame vibee = new JFrame("hentai lol");
     vibee.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
@@ -122,19 +123,17 @@ public class App {
         niceD.addActionListener(new ActionListener() {
           @Override
           public void actionPerformed(ActionEvent e) {
-            int min11 = 100000;
-            int max11 = 999999;
-            int bool = (int)Math.floor(Math.random()*(max1-min1+1)+min1);
             try {
-              jep.setPage("https://www.nhentai.net/g/" + bool);
-            } catch (IOException e1) {
-              // TODO Auto-generated catch block
-              e1.printStackTrace();
-              jep.setText("there was an error");
-              System.out.println(bool);
-            }
+              jep.setVisible(false);
+              jep1.setVisible(true);
+
+            jep1.setPage("https://tenor.com/view/caught-in-4k-caught-in4k-chungus-gif-19840038");
+          } catch (IOException e1) {
+          jep1.setContentType("text/html");
+          jep1.setText("<html>Could not load</html>");
+              
+          } 
           }
-          
         });
 
     niceA.add(niceB);
