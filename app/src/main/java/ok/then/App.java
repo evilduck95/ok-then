@@ -55,17 +55,10 @@ public class App {
 
         String hentaiLink = link + random_int1;
 
-        JButton niceD = new JButton("ZOOOOOOM in");
+        JButton niceD = new JButton("mysterious button");
 
         niceD.setBounds(1130, 5, 250, 40);
     
-        niceD.addActionListener(new ActionListener() {
-          @Override
-          public void actionPerformed(ActionEvent e) {
-              
-          }
-          
-        });
     
 
         JEditorPane jep = new JEditorPane();
@@ -114,6 +107,23 @@ public class App {
           
         });
       
+        niceD.addActionListener(new ActionListener() {
+          @Override
+          public void actionPerformed(ActionEvent e) {
+            int min11 = 100000;
+            int max11 = 999999;
+            int bool = (int)Math.floor(Math.random()*(max1-min1+1)+min1);
+            try {
+              jep.setPage("https://www.nhentai.net/g/" + bool);
+            } catch (IOException e1) {
+              // TODO Auto-generated catch block
+              e1.printStackTrace();
+              jep.setText("there was an error");
+            }
+          }
+          
+        });
+
     niceA.add(niceB);
     niceA.add(niceC);
     jep.add(niceD);
