@@ -11,6 +11,7 @@ import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JEditorPane;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 
@@ -22,10 +23,16 @@ public class App {
     backgroundImage = ImageIO.read(new File(fileName));
   }
 
-  public static void genRanNum(int minNum, int maxNum){
+  public static void genRanNum(int minNum, int maxNum, JEditorPane panelToFill){
     int new_forHentai = (int)Math.floor(Math.random()*(maxNum-minNum+1)+minNum);
 
-    final int newGenHentai = new_forHentai;
+     int newGenHentai = new_forHentai;
+
+    try {
+      panelToFill.setPage("https://www.nhentai.net/g/" + newGenHentai);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
   }
 
     private static final String JToolBar = null;
@@ -39,7 +46,7 @@ public class App {
         int bannedHentaiNum = 3;
         int hentaiArrayToPush = bannedHentaiNum + 1;
         String[] bannedHentais = new String[bannedHentaiNum];
-
+        JButton niceC = new JButton("make new hentai");
         String[] hentaiArray = new String[5];
         String link = "https://www.nhentai.net/g/";
         Random rand = new Random();
@@ -98,6 +105,7 @@ public class App {
     niceA.toFront();
     bannedHentaiNum += 2;
     i_forHentai_string = bannedHentais[bannedHentaiNum - 3];
+    niceA.add(niceC);
     } 
 
     JScrollPane scrollPane = new JScrollPane(jep);     
@@ -119,7 +127,7 @@ public class App {
       
     });
    
-    JButton niceC = new JButton("close hentai window");
+    
 
         niceC.setBounds(80, 150, 250, 40);
     
@@ -127,6 +135,9 @@ public class App {
           @Override
           public void actionPerformed(ActionEvent e) {
             f.setVisible(false);
+            genRanNum(100000, 999999, jep1); 
+            f1.setVisible(true);
+
           }
           
         });
@@ -134,20 +145,11 @@ public class App {
         niceD.addActionListener(new ActionListener() {
           @Override
           public void actionPerformed(ActionEvent e) {
-            try {
-              f.setVisible(false);
-              jep1.setPage("https://media1.tenor.com/images/37e56f0349e09f17c890c1503b7655fd/tenor.gif?itemid=19840038");
-              f1.setVisible(true);
-          } catch (IOException e1) {
-          jep1.setContentType("text/html");
-          jep1.setText("<html>Could not load</html>");
-              
-          } 
+            
           }
         });
 
     niceA.add(niceB);
-    niceA.add(niceC);
     jep.add(niceD);
     niceA.setSize(400, 500);
     niceA.setLayout(null);
