@@ -10,11 +10,16 @@ import java.awt.event.*;
 import java.awt.event.ActionListener;
 import java.util.regex.*;
 import java.text.*;
+import java.awt.geom.*;
+import javax.swing.JToolBar;
+
 
 
 
 public class App {
     
+    private static final String JToolBar = null;
+
     public static void main(String[] args) {
         int min1 = 0;
         int max1 = 4;
@@ -49,6 +54,9 @@ public class App {
 
 
         String hentaiLink = link + random_int1;
+
+       
+
         JEditorPane jep = new JEditorPane();
     jep.setEditable(false);   
     JFrame niceA = new JFrame();
