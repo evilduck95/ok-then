@@ -150,7 +150,13 @@ public class App {
 
             f.setVisible(false);
             f1.setVisible(true);
-            jep1.setText("I tried to add a little 'caught in 4k' gif, but it didnt work, so just pretend it does >.<");
+            try {
+              jep1.setPage("https://cdn.discordapp.com/attachments/771537337112330250/836695201447673956/getrekt.jpg");
+            } catch (IOException e1) {
+              // TODO Auto-generated catch block
+              e1.printStackTrace();
+              jep1.setText("unable to load image");
+            }
           }
         });
 
