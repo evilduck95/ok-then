@@ -135,9 +135,8 @@ public class App {
           @Override
           public void actionPerformed(ActionEvent e) {
             f.setVisible(false);
-            genRanNum(100000, 999999, jep1); 
             f1.setVisible(true);
-
+            
           }
           
         });
