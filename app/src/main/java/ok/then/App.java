@@ -2,9 +2,12 @@ package ok.then;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.util.Random;
 
+import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JEditorPane;
 import javax.swing.JFrame;
@@ -14,8 +17,10 @@ import javax.swing.JScrollPane;
 
 
 public class App {
-  
-    
+  public BufferedImage backgroundImage;
+  public void JPanelWithBackground(String fileName) throws IOException {
+    backgroundImage = ImageIO.read(new File(fileName));
+  }
 
     private static final String JToolBar = null;
 
@@ -119,6 +124,7 @@ public class App {
               // TODO Auto-generated catch block
               e1.printStackTrace();
               jep.setText("there was an error");
+              System.out.println(bool);
             }
           }
           
