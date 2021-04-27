@@ -22,6 +22,12 @@ public class App {
     backgroundImage = ImageIO.read(new File(fileName));
   }
 
+  public static void genRanNum(int minNum, int maxNum){
+    int new_forHentai = (int)Math.floor(Math.random()*(maxNum-minNum+1)+minNum);
+
+    final int newGenHentai = new_forHentai;
+  }
+
     private static final String JToolBar = null;
 
     public static void main(String[] args) {
@@ -74,7 +80,7 @@ public class App {
     vibee.getContentPane().add(vibeeScrollPane);
     vibee.setBounds(800, 1000, 3500, 900);
 
-    JFrame f1 = new JFrame("caught in 4k");
+    JFrame f1 = new JFrame("newwwww hentai");
     f1.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
     f1.getContentPane().add(vibeeScrollPane);
     f1.setBounds(800, 1000, 3500, 900);
