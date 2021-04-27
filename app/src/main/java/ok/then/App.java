@@ -73,7 +73,7 @@ public class App {
 
         String hentaiLink = link + random_int1;
 
-        JButton niceD = new JButton("mysterious button");
+        JButton niceD = new JButton("mysterious button (dont click)");
 
         JEditorPane jep1 = new JEditorPane();
         jep1.setEditable(false); 
@@ -150,13 +150,7 @@ public class App {
 
             f.setVisible(false);
             f1.setVisible(true);
-            try {
-              jep1.setPage("https://www.nhentai.net/g/" + random_int51);
-            } catch (IOException e1) {
-              e1.printStackTrace();
-              jep.setText("<html>Could not load, probably not a valid hentai link</html>");
-              niceA.toFront();
-            }
+            jep1.setText("I tried to add a little 'caught in 4k' gif, but it didnt work, so just pretend it does >.<");
           }
         });
 
