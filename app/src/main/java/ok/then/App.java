@@ -62,9 +62,16 @@ public class App {
 
         JButton niceD = new JButton("mysterious button");
 
+        JEditorPane jep1 = new JEditorPane();
+        jep1.setEditable(false); 
+
         niceD.setBounds(1130, 5, 250, 40);
-    
-    
+        
+        JScrollPane vibeeScrollPane = new JScrollPane(jep1);   
+        JFrame vibee = new JFrame("hentai lol");
+    vibee.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+    vibee.getContentPane().add(vibeeScrollPane);
+    vibee.setBounds(800, 1000, 3500, 900);
 
         JEditorPane jep = new JEditorPane();
     jep.setEditable(false);   
