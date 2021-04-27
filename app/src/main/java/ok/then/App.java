@@ -130,7 +130,7 @@ public class App {
           public void actionPerformed(ActionEvent e) {
             try {
               f.setVisible(false);
-              jep1.setPage("https://cdns-images.dzcdn.net/images/cover/a7a91013aa74a8a975c931ca054646be/264x264.jpg");
+              jep1.setPage("https://media1.tenor.com/images/37e56f0349e09f17c890c1503b7655fd/tenor.gif?itemid=19840038");
               f1.setVisible(true);
           } catch (IOException e1) {
           jep1.setContentType("text/html");
