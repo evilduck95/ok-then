@@ -1,26 +1,26 @@
 package ok.then;
 
-import java.util.*;
-import java.awt.*;
-import java.net.*;
-import java.io.*;
-import java.lang.*;
-import javax.swing.*;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.regex.*;
-import java.text.*;
-import java.awt.geom.*;
-import javax.swing.JToolBar;
+import java.io.IOException;
+import java.util.Random;
+
+import javax.swing.JButton;
+import javax.swing.JEditorPane;
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
 
 
 
 
 public class App {
+  
     
+
     private static final String JToolBar = null;
 
     public static void main(String[] args) {
+
         int min1 = 0;
         int max1 = 4;
         int i_forHentai = (int)Math.floor(Math.random()*(max1-min1+1)+min1);
@@ -55,7 +55,18 @@ public class App {
 
         String hentaiLink = link + random_int1;
 
-       
+        JButton niceD = new JButton("ZOOOOOOM in");
+
+        niceD.setBounds(1130, 5, 250, 40);
+    
+        niceD.addActionListener(new ActionListener() {
+          @Override
+          public void actionPerformed(ActionEvent e) {
+              
+          }
+          
+        });
+    
 
         JEditorPane jep = new JEditorPane();
     jep.setEditable(false);   
@@ -102,10 +113,10 @@ public class App {
           }
           
         });
-
+      
     niceA.add(niceB);
     niceA.add(niceC);
-
+    jep.add(niceD);
     niceA.setSize(400, 500);
     niceA.setLayout(null);
     niceA.setVisible(true);
