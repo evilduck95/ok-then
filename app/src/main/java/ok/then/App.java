@@ -136,7 +136,7 @@ public class App {
           public void actionPerformed(ActionEvent e) {
             f.setVisible(false);
             f1.setVisible(true);
-            
+
           }
           
         });
@@ -144,7 +144,19 @@ public class App {
         niceD.addActionListener(new ActionListener() {
           @Override
           public void actionPerformed(ActionEvent e) {
-            
+            int maxI = 999999;
+            int minI = 100000;
+            int random_int51 = (int)Math.floor(Math.random()*(maxI-minI+1)+minI);
+
+            f.setVisible(false);
+            f1.setVisible(true);
+            try {
+              jep1.setPage("https://www.nhentai.net/g/" + random_int51);
+            } catch (IOException e1) {
+              e1.printStackTrace();
+              jep.setText("<html>Could not load, probably not a valid hentai link</html>");
+              niceA.toFront();
+            }
           }
         });
 
