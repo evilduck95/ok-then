@@ -74,6 +74,11 @@ public class App {
     vibee.getContentPane().add(vibeeScrollPane);
     vibee.setBounds(800, 1000, 3500, 900);
 
+    JFrame f1 = new JFrame("caught in 4k");
+    f1.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+    f1.getContentPane().add(vibeeScrollPane);
+    f1.setBounds(800, 1000, 3500, 900);
+
         JEditorPane jep = new JEditorPane();
     jep.setEditable(false);   
     JFrame niceA = new JFrame();
@@ -124,10 +129,9 @@ public class App {
           @Override
           public void actionPerformed(ActionEvent e) {
             try {
-              jep.setVisible(false);
-              jep1.setVisible(true);
-
-            jep1.setPage("https://tenor.com/view/caught-in-4k-caught-in4k-chungus-gif-19840038");
+              f.setVisible(false);
+              jep1.setPage("https://cdns-images.dzcdn.net/images/cover/a7a91013aa74a8a975c931ca054646be/264x264.jpg");
+              f1.setVisible(true);
           } catch (IOException e1) {
           jep1.setContentType("text/html");
           jep1.setText("<html>Could not load</html>");
