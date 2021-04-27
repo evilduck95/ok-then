@@ -13,6 +13,7 @@ import javax.swing.JEditorPane;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import java.io.FileNotFoundException;
 
 
 
@@ -103,13 +104,14 @@ public class App {
         
         System.out.println(hentaiArray[i_forHentai]);
     jep.setPage("https://www.nhentai.net/g/" + hentaiArray[i_forHentai]);
+    niceA.add(niceC);
     } catch (IOException e) {
     jep.setContentType("text/html");
     jep.setText("<html>Could not load, probably not a valid hentai link</html>");
     niceA.toFront();
     bannedHentaiNum += 2;
     i_forHentai_string = bannedHentais[bannedHentaiNum - 3];
-    niceA.add(niceC);
+    
     } 
 
     JScrollPane scrollPane = new JScrollPane(jep);     
@@ -165,17 +167,16 @@ public class App {
 
             try {
               jep1.setPage("https://www.nhentai.net/g/" + newIntForHentai);
-            } catch (IOException e1) {
+            } catch (IOException s) {
               // TODO Auto-generated catch block
-              e1.printStackTrace();
-              jep1.setText("unable to load text :/");
+              s.printStackTrace();
+              jep1.setText("this isnt a valid link either lol");
             }
             f1.setVisible(true);
           }
         });
 
     niceA.add(niceB);
-    niceA.add(niceC);
     jep.add(niceD);
     niceA.setSize(400, 500);
     niceA.setLayout(null);
