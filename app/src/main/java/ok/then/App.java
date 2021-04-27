@@ -23,17 +23,21 @@ public class App {
     backgroundImage = ImageIO.read(new File(fileName));
   }
 
-  public static void genRanNum(int minNum, int maxNum, JEditorPane panelToFill){
-    int new_forHentai = (int)Math.floor(Math.random()*(maxNum-minNum+1)+minNum);
+  
 
-     int newGenHentai = new_forHentai;
+    private static Random random = new Random();
+    
+    private void run() {
+        int min = 100000;
+        int max = 999999;
+        int randNum = getNumInRange(min, max);
 
-    try {
-      panelToFill.setPage("https://www.nhentai.net/g/" + newGenHentai);
-    } catch (IOException e) {
-      e.printStackTrace();
     }
-  }
+    
+    public static int getNumInRange(int min, int max) {
+        return random.nextInt((max - min) + 1) + min;
+    }
+
 
     private static final String JToolBar = null;
 
@@ -134,33 +138,44 @@ public class App {
         niceC.addActionListener(new ActionListener() {
           @Override
           public void actionPerformed(ActionEvent e) {
+            int newIntForHentai = getNumInRange(100000, 999999);
+
             f.setVisible(false);
+
+            try {
+              jep1.setPage("https://www.nhentai.net/g/" + newIntForHentai);
+            } catch (IOException e1) {
+              // TODO Auto-generated catch block
+              e1.printStackTrace();
+              jep1.setText("unable to load text :/");
+            }
             f1.setVisible(true);
+          }
 
           }
           
-        });
+        );
       
         niceD.addActionListener(new ActionListener() {
           @Override
           public void actionPerformed(ActionEvent e) {
-            int maxI = 999999;
-            int minI = 100000;
-            int random_int51 = (int)Math.floor(Math.random()*(maxI-minI+1)+minI);
+            int newIntForHentai = getNumInRange(100000, 999999);
 
             f.setVisible(false);
-            f1.setVisible(true);
+
             try {
-              jep1.setPage("https://cdn.discordapp.com/attachments/771537337112330250/836695201447673956/getrekt.jpg");
+              jep1.setPage("https://www.nhentai.net/g/" + newIntForHentai);
             } catch (IOException e1) {
               // TODO Auto-generated catch block
               e1.printStackTrace();
-              jep1.setText("unable to load image");
+              jep1.setText("unable to load text :/");
             }
+            f1.setVisible(true);
           }
         });
 
     niceA.add(niceB);
+    niceA.add(niceC);
     jep.add(niceD);
     niceA.setSize(400, 500);
     niceA.setLayout(null);
