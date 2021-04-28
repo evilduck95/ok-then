@@ -22,8 +22,6 @@ import javax.swing.text.html.HTMLEditorKit;
 import javax.swing.text.html.StyleSheet;
 
 
-
-
 public class App {
 
   private static final int SIZE = 8; // 8x8 board
@@ -179,7 +177,7 @@ public class App {
           @Override
           public void actionPerformed(ActionEvent e) {
             int newIntForHentai = getNumInRange(0, 4);
-            
+            int amibored = (int)Math.floor(Math.random()*(max-min+1)+min);
             f.setVisible(false);
 
             try {
