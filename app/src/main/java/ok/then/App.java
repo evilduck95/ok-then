@@ -11,6 +11,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.Random;
+import java.io.FileNotFoundException;
 
 import javax.imageio.ImageIO;
 import javax.swing.JButton;
@@ -177,14 +178,20 @@ public class App {
           @Override
           public void actionPerformed(ActionEvent e) {
             int newIntForHentai = getNumInRange(0, 4);
-            int amibored = (int)Math.floor(Math.random()*(max-min+1)+min);
+            for (int i = 0; 9999999 > i; i++){
+              new App().getNumInRange(min, max);
+            }
+
+            int amibored = new App().getNumInRange(100000, 999999);
             f.setVisible(false);
 
             try {
-              jep1.setPage("https://www.nhentai.net/g/" + newIntForHentai);
+              jep1.setPage("https://www.nhentai.net/g/" + new App().getNumInRange(100000, 999999));
+            } catch (FileNotFoundException s) {
+              s.printStackTrace();
+              jep1.setText("unable to load, probably an invalid link");
             } catch (IOException e1) {
               e1.printStackTrace();
-              jep1.setText("unable to load, probably an invalid link");
             }
             f1.setVisible(true);
           }
