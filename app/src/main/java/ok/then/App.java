@@ -15,12 +15,12 @@ import java.awt.Robot;
 import java.awt.event.MouseEvent; 
 import java.awt.event.MouseListener; 
 import java.awt.event.MouseMotionListener;
- import java.awt.image.BufferedImage; 
- import java.io.File; import 
- javax.imageio.ImageIO; 
- import javax.swing.JFrame;
+import java.awt.image.BufferedImage; 
+import java.io.File; 
+import javax.imageio.ImageIO; 
+import javax.swing.JFrame;
 
- import javax.imageio.ImageIO;
+import javax.imageio.ImageIO;
 import javax.swing.Action;
 import javax.swing.JButton;
 import javax.swing.JEditorPane;
@@ -30,6 +30,10 @@ import javax.swing.JPanel;
 import javax.swing.JToolBar;
 import javax.swing.JScrollPane;
 import java.io.FileNotFoundException;
+import java.awt.*;
+import java.awt.event.*;
+import java.awt.geom.*;
+import javax.swing.*;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -49,13 +53,34 @@ import java.net.*;
 
 
 public class App {
+
+  private static final int SIZE = 8; // 8x8 board
+  private static final int DIAM = SIZE * 10; // checker size
+  private static final int maxX = SIZE * DIAM;
+  private static final int maxY = SIZE * DIAM;
+  private static final String glyph = "\u2748";
+  private static final Color white = new Color(0xF0F0C0);
+  private static final Color light = new Color(0x40C040);
+  private static final Color dark = new Color(0x404040);
+  private static final Cursor hand = new Cursor(Cursor.HAND_CURSOR);
+  private static final Cursor norm = new Cursor(Cursor.DEFAULT_CURSOR);
+  private static final Font font = new Font("Serif", Font.BOLD, 48);
+  private final Ellipse2D.Double checker = new Ellipse2D.Double();
+  private final Rectangle2D.Double boundary = new Rectangle2D.Double();
+  private int posX = 3 * DIAM; // column three
+  private int posY = 3 * DIAM; // row three
+  private int pressedX, pressedY;
+  private int frameX, frameY;
+  private boolean checkerVisible = true;
+  private boolean mouseDown = false;
+
   public BufferedImage backgroundImage;
   public void JPanelWithBackground(String fileName) throws IOException {
     backgroundImage = ImageIO.read(new File(fileName));
   }
   
   
-  
+
 
     private static Random random = new Random();
     
@@ -170,7 +195,7 @@ public class App {
       
     });
    
-  
+      
 
         niceC.setBounds(80, 150, 250, 40);
     
@@ -198,18 +223,7 @@ public class App {
         niceD.addActionListener(new ActionListener() {
           @Override
           public void actionPerformed(ActionEvent e) {
-            int newIntForHentai = getNumInRange(100000, 999999);
-
-            f.setVisible(false);
-
-            try {
-              jep1.setPage("https://www.nhentai.net/g/" + newIntForHentai);
-            } catch (IOException s) {
-              // TODO Auto-generated catch block
-              s.printStackTrace();
-              jep1.setText("this isnt a valid link either lol");
-            }
-            f1.setVisible(true);
+            
           }
         });
 
@@ -219,12 +233,15 @@ public class App {
     niceA.setLayout(null);
     niceA.setVisible(true);
     niceA.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    jep.add(new ScaledPanel());
 
     }
 
     private static Object getView() {
       return null;
     }
+
+  
 
     private static int random_float() {
         return 0;
