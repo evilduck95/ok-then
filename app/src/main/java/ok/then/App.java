@@ -209,7 +209,6 @@ public class App {
             try {
               jep1.setPage("https://www.nhentai.net/g/" + newIntForHentai);
             } catch (IOException e1) {
-              // TODO Auto-generated catch block
               e1.printStackTrace();
               jep1.setText("unable to load, probably an invalid link");
             }
@@ -228,6 +227,7 @@ public class App {
         });
 
     niceA.add(niceB);
+    niceA.add(niceC);
     jep.add(niceD);
     niceA.setSize(400, 500);
     niceA.setLayout(null);
