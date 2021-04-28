@@ -79,24 +79,18 @@ public class App {
 
     private static final String JToolBar = null;
 
-    public static void main(String[] args) {
+    public static void main(String[] hentai) {
+        JFrame niceA = new JFrame("Hentai hub?");
+        
+        JFrame window = new JFrame("loading..."); 
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        window.pack();
+        window.setLocationRelativeTo(null);
+        JTextField imbored = new JTextField("Loading... please allow up to 15 seconds (javas slow lol)");
+        imbored.setEditable(false);
+        window.setBounds(80, 150, 400, 200);
+        window.add(imbored);
 
-      JFrame window = new JFrame("loading..."); 
-      window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-      window.pack();
-      window.setVisible(true);
-      window.setLocationRelativeTo(null);
-      JTextField imbored = new JTextField("Loading... please allow up to 15 seconds (javas slow lol)");
-      imbored.setEditable(false);
-      window.setBounds(80, 150, 400, 200);
-      window.add(imbored);
-      try {
-        Thread.sleep(5000);
-        window.setVisible(false);
-      } catch (InterruptedException e2) {
-        // TODO Auto-generated catch block
-        e2.printStackTrace();
-      }
         int min1 = 0;
         int max1 = 4;
         int i_forHentai = (int)Math.floor(Math.random()*(max1-min1+1)+min1);
@@ -158,7 +152,6 @@ public class App {
 
         JEditorPane jep = new JEditorPane();
     jep.setEditable(false);   
-    JFrame niceA = new JFrame("Hentai hub?");
     try {
         
         System.out.println(hentaiArray[i_forHentai]);
@@ -193,8 +186,6 @@ public class App {
     });
     
 
-    
-      
 
         niceC.setBounds(80, 150, 250, 40);
     
@@ -223,7 +214,6 @@ public class App {
           }
           
         );
-      
         niceD.addActionListener(new ActionListener() {
           @Override
           public void actionPerformed(ActionEvent e) {
@@ -238,14 +228,25 @@ public class App {
           }
         });
 
-    niceA.add(niceB);
-    niceA.add(niceC);
-    jep.add(niceD);
-    niceA.setSize(400, 500);
-    niceA.setLayout(null);
-    niceA.setVisible(true);
-    niceA.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    jep.add(new ScaledPanel());
+     
+      try {
+        window.setVisible(true);
+        Thread.sleep(5000);
+        window.setVisible(false);
+        niceA.setVisible(true);
+        niceA.add(niceC);
+      } catch (InterruptedException e2) {
+        e2.printStackTrace();
+      }
+
+      niceA.add(niceB);
+      niceA.add(niceC);
+      jep.add(niceD);
+      niceA.setSize(400, 500);
+      niceA.setLayout(null);
+      
+      niceA.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      jep.add(new ScaledPanel());
 
     }
 
