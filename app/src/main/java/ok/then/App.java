@@ -10,10 +10,12 @@ import java.util.Enumeration;
 import java.util.Random;
 
 import javax.imageio.ImageIO;
+import javax.swing.Action;
 import javax.swing.JButton;
 import javax.swing.JEditorPane;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JToolBar;
 import javax.swing.JScrollPane;
 import java.io.FileNotFoundException;
 
@@ -73,12 +75,6 @@ public class App {
         HTMLDocument doc = (HTMLDocument) kit.createDefaultDocument();
         StyleSheet styles = doc.getStyleSheet();
  
-        Enumeration rules = styles.getStyleNames();
-        while (rules.hasMoreElements()) {
-            String name = (String) rules.nextElement();
-            javax.swing.text.Style rule = styles.getStyle(name);
-            System.out.println(rule.toString());
-        }
 
         int max = 999999;
         int min = 100000;
@@ -158,7 +154,7 @@ public class App {
       
     });
    
-    
+  
 
         niceC.setBounds(80, 150, 250, 40);
     
@@ -174,7 +170,7 @@ public class App {
             } catch (IOException e1) {
               // TODO Auto-generated catch block
               e1.printStackTrace();
-              jep1.setText("unable to load text :/");
+              jep1.setText("unable to load, probably an invalid link");
             }
             f1.setVisible(true);
           }
@@ -208,6 +204,10 @@ public class App {
     niceA.setVisible(true);
     niceA.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+    }
+
+    private static Object getView() {
+      return null;
     }
 
     private static int random_float() {
