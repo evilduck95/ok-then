@@ -1,6 +1,7 @@
 package ok.then;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -14,10 +15,15 @@ import java.util.Random;
 import java.io.FileNotFoundException;
 
 import javax.imageio.ImageIO;
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JEditorPane;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.text.html.HTMLDocument;
 import javax.swing.text.html.HTMLEditorKit;
 import javax.swing.text.html.StyleSheet;
@@ -75,6 +81,22 @@ public class App {
 
     public static void main(String[] args) {
 
+      JFrame window = new JFrame("loading..."); 
+      window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      window.pack();
+      window.setVisible(true);
+      window.setLocationRelativeTo(null);
+      JTextField imbored = new JTextField("Loading... please allow up to 15 seconds (javas slow lol)");
+      imbored.setEditable(false);
+      window.setBounds(80, 150, 400, 200);
+      window.add(imbored);
+      try {
+        Thread.sleep(5000);
+        window.setVisible(false);
+      } catch (InterruptedException e2) {
+        // TODO Auto-generated catch block
+        e2.printStackTrace();
+      }
         int min1 = 0;
         int max1 = 4;
         int i_forHentai = (int)Math.floor(Math.random()*(max1-min1+1)+min1);
@@ -169,7 +191,9 @@ public class App {
       }
       
     });
-   
+    
+
+    
       
 
         niceC.setBounds(80, 150, 250, 40);
