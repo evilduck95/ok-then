@@ -26,14 +26,6 @@ import javax.swing.text.html.StyleSheet;
 
 public class App {
 
-  public static int getHentaiCode(int newIntForHentai_string){
-    return newIntForHentai_string;
-  }
-
-  public static String removeFirstChar(String s){
-    return s.substring(1);
- }
-
   private static final int SIZE = 8; // 8x8 board
   private static final int DIAM = SIZE * 10; // checker size
   private static final int maxX = SIZE * DIAM;
@@ -99,8 +91,7 @@ public class App {
         HTMLEditorKit kit = new HTMLEditorKit();
         HTMLDocument doc = (HTMLDocument) kit.createDefaultDocument();
         StyleSheet styles = doc.getStyleSheet();
-
-        boolean hentai;
+ 
 
         int max = 999999;
         int min = 100000;
@@ -188,46 +179,20 @@ public class App {
           @Override
           public void actionPerformed(ActionEvent e) {
             int newIntForHentai = getNumInRange(0, 4);
-           
+            
             f.setVisible(false);
 
             try {
-              jep1.setPage("https://www.nhentai.net/g/" + hentaiArray[newIntForHentai]);
+              jep1.setPage("https://www.nhentai.net/g/" + newIntForHentai);
             } catch (IOException e1) {
               e1.printStackTrace();
               jep1.setText("unable to load, probably an invalid link");
-              final boolean hentai1 = true;
-              String updatedHentai = hentaiArray[newIntForHentai];
-               
-              getHentaiCode(newIntForHentai);
-
-              int yayVibe;
-              yayVibe = newIntForHentai;
-              
-              String coolStuff = String.valueOf(yayVibe);
-              int coolStuffLength = coolStuff.length();
-              String coolStuffLength1 = String.valueOf(coolStuffLength);
-              if (coolStuffLength > 6){
-                String newLength = removeFirstChar(coolStuffLength1);
-                  int newLength1 = newLength.length();
-                    if (newLength1 == 6){
-
-                      try {
-                        jep1.setPage(link + newLength1);
-                      } catch (IOException e2) {
-                        e2.printStackTrace();
-                      }
-
-                    }
-              }
             }
             f1.setVisible(true);
           }
 
           }
           
-          
-
         );
       
         niceD.addActionListener(new ActionListener() {
