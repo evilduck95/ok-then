@@ -5,6 +5,8 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.text.NumberFormat.Style;
+import java.util.Enumeration;
 import java.util.Random;
 
 import javax.imageio.ImageIO;
@@ -14,6 +16,17 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import java.io.FileNotFoundException;
+
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import javax.swing.JEditorPane;
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
+import javax.swing.SwingUtilities;
+import javax.swing.text.Document;
+import javax.swing.text.html.HTMLDocument;
+import javax.swing.text.html.HTMLEditorKit;
+import javax.swing.text.html.StyleSheet;
 
 
 
@@ -55,6 +68,18 @@ public class App {
         String[] hentaiArray = new String[5];
         String link = "https://www.nhentai.net/g/";
         Random rand = new Random();
+
+        HTMLEditorKit kit = new HTMLEditorKit();
+        HTMLDocument doc = (HTMLDocument) kit.createDefaultDocument();
+        StyleSheet styles = doc.getStyleSheet();
+ 
+        Enumeration rules = styles.getStyleNames();
+        while (rules.hasMoreElements()) {
+            String name = (String) rules.nextElement();
+            javax.swing.text.Style rule = styles.getStyle(name);
+            System.out.println(rule.toString());
+        }
+
         int max = 999999;
         int min = 100000;
         int random_int1 = (int)Math.floor(Math.random()*(max-min+1)+min);
