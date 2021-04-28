@@ -8,12 +8,24 @@ import java.io.IOException;
 import java.text.NumberFormat.Style;
 import java.util.Enumeration;
 import java.util.Random;
+import java.io.*;
+import java.awt.Graphics; 
+import java.awt.Rectangle; 
+import java.awt.Robot; 
+import java.awt.event.MouseEvent; 
+import java.awt.event.MouseListener; 
+import java.awt.event.MouseMotionListener;
+ import java.awt.image.BufferedImage; 
+ import java.io.File; import 
+ javax.imageio.ImageIO; 
+ import javax.swing.JFrame;
 
-import javax.imageio.ImageIO;
+ import javax.imageio.ImageIO;
 import javax.swing.Action;
 import javax.swing.JButton;
 import javax.swing.JEditorPane;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JToolBar;
 import javax.swing.JScrollPane;
@@ -21,6 +33,7 @@ import java.io.FileNotFoundException;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.desktop.*;
 import javax.swing.JEditorPane;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
@@ -30,6 +43,8 @@ import javax.swing.text.html.HTMLDocument;
 import javax.swing.text.html.HTMLEditorKit;
 import javax.swing.text.html.StyleSheet;
 
+import java.net.*;
+
 
 
 
@@ -38,7 +53,8 @@ public class App {
   public void JPanelWithBackground(String fileName) throws IOException {
     backgroundImage = ImageIO.read(new File(fileName));
   }
-
+  
+  
   
 
     private static Random random = new Random();
@@ -47,7 +63,7 @@ public class App {
         int min = 100000;
         int max = 999999;
         int randNum = getNumInRange(min, max);
-
+        
     }
     
     public static int getNumInRange(int min, int max) {
@@ -99,7 +115,7 @@ public class App {
 
         String hentaiLink = link + random_int1;
 
-        JButton niceD = new JButton("mysterious button (dont click)");
+        JButton niceD = new JButton("zooooooooooom");
 
         JEditorPane jep1 = new JEditorPane();
         jep1.setEditable(false); 
