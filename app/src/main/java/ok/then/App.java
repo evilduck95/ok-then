@@ -136,7 +136,6 @@ public class App {
         JEditorPane jep1 = new JEditorPane();
         jep1.setEditable(false); 
         niceD.setBounds(1130, 5, 250, 40);
-
         
 
         JScrollPane vibeeScrollPane = new JScrollPane(jep1);   
